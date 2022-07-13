@@ -2,6 +2,7 @@ package com.example.applyviewmodel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.applyviewmodel.databinding.ActivityMainBinding
 
@@ -32,7 +33,8 @@ class MainActivity : AppCompatActivity() {
 //        }
 
         val factory = MyViewModelFactory(100)
-        val myViewModel = ViewModelProvider(this,factory).get(MyViewModel::class.java)
+//        val myViewModel = ViewModelProvider(this,factory)[MyViewModel::class.java]
+        val myViewModel by viewModels<MyViewModel>() { factory }
         binding.textView.text = myViewModel.counter.toString()
 
         binding.button.setOnClickListener {
