@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 //            binding.textView.text = myViewModel.counter.toString()
 //        }
 
-        val factory = MyViewModelFactory(100)
+        val factory = MyViewModelFactory(100,this)
 //        val myViewModel = ViewModelProvider(this,factory)[MyViewModel::class.java]
         val myViewModel by viewModels<MyViewModel>() { factory }
 
