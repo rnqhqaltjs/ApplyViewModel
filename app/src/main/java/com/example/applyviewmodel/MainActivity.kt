@@ -35,11 +35,12 @@ class MainActivity : AppCompatActivity() {
         val factory = MyViewModelFactory(100)
 //        val myViewModel = ViewModelProvider(this,factory)[MyViewModel::class.java]
         val myViewModel by viewModels<MyViewModel>() { factory }
-        binding.textView.text = myViewModel.counter.toString()
 
+        binding.textView.text = myViewModel.counter.toString()
         binding.button.setOnClickListener {
             myViewModel.counter += 1
             binding.textView.text = myViewModel.counter.toString()
+            myViewModel.saveState()
         }
     }
 }
